@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flight Price Prediction</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddeeee;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    input[type="text"], select, input[type="number"] {
+        padding: 12px 15px;
+        margin: 8px 0 20px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        box-sizing: border-box; /* Added for better box sizing */
+        transition: border-color 0.3s ease-in-out; /* Smooth transition for border color */
+    }
+    input[type="text"]:focus, select:focus, input[type="number"]:focus {
+        border-color: #4CAF50; /* Highlight focus */
+        outline: none; /* Remove default focus outline */
+    }
+    button[type="submit"] {
+        font-size: 16px; /* Larger font size for better readability */
+        letter-spacing: 1px; /* Spacing between letters for a touch of elegance */
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out; /* Smooth transition for background color */
+    }
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+
+</head>
+<body>
+<div class="container">
+    <h2>Enter Flight Details</h2>
+    <form action="/predict" method="post">
+        <input list="airlines" name="airline" placeholder="Airline" required>
+        <datalist id="airlines">
+            <option value="SpiceJet">
+            <option value="AirAsia">
+            <option value="Vistara">
+            <option value="Indigo">
+            <option value="Air India">
+            <!-- Add other airlines as needed -->
+        </datalist>
+
+        <input list="flights" name="flight" placeholder="Flight Number" required>
+        <datalist id="flights">
+            <option value="SG-8709">
+            <option value="SG-8157">
+            <option value="I5-764">
+            <option value="UK-995">
+            <option value="UK-963">
+            <option value="UK-945">
+            <option value="UK-927">
+            <option value="UK-951">
+            <option value="G8-334">
+            <option value="G8-336">
+            <option value="G8-392">
+            <option value="G8-338">
+            <option value="6E-5001">
+            <option value="6E-6202">
+            <option value="6E-549">
+            <option value="6E-6278">
+            <option value="AI-887">
+        </datalist>
+        
+
+        <input list="source_cities" name="source_city" placeholder="Source City" required>
+        <datalist id="source_cities">
+            <option value="Delhi">
+            <option value="Mumbai">
+            <option value="Chennai">
+            <!-- Add other source cities as needed -->
+        </datalist>
+
+        <input list="destination_cities" name="destination_city" placeholder="Destination City" required>
+        <datalist id="destination_cities">
+            <option value="Hyderabad">
+            <option value="Kolkata">
+            <option value="Bangalore">
+            <option value="Mumbai">
+            <!-- Add other destination cities as needed -->
+        </datalist>
+
+        <input list="departure_times" name="departure_time" placeholder="Departure Time" required>
+        <datalist id="departure_times">
+            <option value="Morning">
+            <option value="Afternoon">
+            <option value="Evening">
+            <!-- Add other departure times as needed -->
+        </datalist>
+
+        <input list="arrival_times" name="arrival_time" placeholder="Arrival Time" required>
+        <datalist id="arrival_times">
+            <option value="Morning">
+            <option value="Afternoon">
+            <option value="Evening">
+            <option value="Night">
+            <option value="Early_Morning"></option>
+            <!-- Add other arrival times as needed -->
+        </datalist>
+
+        <input list="stops" name="stops" placeholder="Stops" required>
+        <datalist id="stops">
+            <option value="zero">
+            <option value="one">
+            <option value="two_or_more">
+        </datalist>
+
+        <select name="class" required>
+            <option value="">Select Class</option>
+            <option value="Economy">Economy</option>
+            <option value="Business">Business</option>
+            <!-- Add other classes as needed -->
+        </select>
+
+        <input type="number" step="any" name="duration" placeholder="Duration (hours)" required>
+        <input type="number" name="days_left" placeholder="Days Left" required>
+
+        <button type="submit">Predict</button>
+    </form>
+</div>
+</body>
+</html>
